@@ -4,14 +4,21 @@ import {CREATE_SHOP, CreateShopData} from "@/queries/createShop";
 import {useUser} from "@auth0/nextjs-auth0/client";
 import Loader from "@/components/Loader";
 import ErrorIndicator from "@/components/ErrorIndicator";
+import {httpLink, setAuthToken} from "../../gqlClient";
 
 const btnStyle = `my-1 rounded-md bg-indigo-100 px-4 py-2 text-indigo-700 hover:bg-indigo-200 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2`;
 const labelStyle = `block text-sm font-medium text-gray-700`;
 const inputStyle = `shadow-sm border-gray-200 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm rounded-md`;
 
-const NewShopForm = () => {
+interface NewShopFormProps {
+    accessToken: string
+}
+
+const NewShopForm = ({accessToken}: NewShopFormProps) => {
     const {user} = useUser()
-    const [createNewShop, {loading, error, data}] = useMutation<CreateShopData>(CREATE_SHOP)
+    const [createNewShop, {loading, error, client}] = useMutation<CreateShopData>(CREATE_SHOP)
+
+    client.setLink(setAuthToken(accessToken).concat(httpLink));
 
     const [formData, setFormData] = useState({
         name: '',
@@ -32,16 +39,16 @@ const NewShopForm = () => {
         createNewShop({
             variables: {...formData, ownerID: user?.sub}
         })
-            .then(() => alert('Shop created'))
+            .then(() => alert(`Shop created`))
             .catch((err) => console.error(err))
-    }
+    };
 
     if (loading) return <Loader/>
     if (error) return <ErrorIndicator/>
 
     return (
         <form onSubmit={handleSubmit} className="bg-white w-full max-w-2xl h-full p-4">
-            <label className={labelStyle}>Shop Name </label>
+            <label className={labelStyle}>Shop Name</label>
             <div className="mt-1 mb-3">
                 <input
                     type="text"
