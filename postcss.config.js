@@ -5,6 +5,7 @@ module.exports = {
             config: './tailwind.config.js',
             plugins: [
                 require('@tailwindcss/aspect-ratio'),
+                require('@tailwindcss/forms'),
             ],
         },
         autoprefixer: {},

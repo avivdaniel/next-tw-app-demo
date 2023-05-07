@@ -19,6 +19,7 @@ module.exports = {
         },
     },
     plugins: [
-        aspectRatio
+        aspectRatio,
+        require('@tailwindcss/forms')
     ],
 }

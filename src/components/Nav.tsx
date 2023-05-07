@@ -18,6 +18,11 @@ const Nav = () => {
                             Cart
                         </Link>
                     </li>
+                    {user && <li className="hover:text-gray-200">
+                        <Link href="/manage-shops">
+                            Manage Shops
+                        </Link>
+                    </li>}
                     <li className="hover:text-gray-200 border-2 border-indigo-600 p-2 rounded">
                         {!user
                             ? <a href="/api/auth/login">Login as Vendor</a>
