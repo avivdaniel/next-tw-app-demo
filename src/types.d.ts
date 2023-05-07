@@ -5,4 +5,5 @@ export interface Product {
     category: string
     shop: number
     _id: string
+    imageUrl?:string
 }

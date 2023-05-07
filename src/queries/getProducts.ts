@@ -9,6 +9,7 @@ export const GET_PRODUCTS = gql`
                 name
                 description
                 price
+                imageUrl
                 shop {
                     _id
                 }
