@@ -1,6 +1,12 @@
 module.exports = {
-  plugins: {
-    tailwindcss: {},
-    autoprefixer: {},
-  },
-}
+    plugins: {
+        tailwindcss: {
+            // Add the `@tailwindcss/aspect-ratio` plugin here
+            config: './tailwind.config.js',
+            plugins: [
+                require('@tailwindcss/aspect-ratio'),
+            ],
+        },
+        autoprefixer: {},
+    },
+};
