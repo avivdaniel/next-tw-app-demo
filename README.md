@@ -1,38 +1,56 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Full-Stack Serverless Marketplace Application 🚀
 
-## Getting Started
+This project is a full-stack serverless marketplace application built with Next.js, GraphQL, and FaunaDB. It allows you to create a robust and feature-rich marketplace without the hassle of managing servers or databases. With the power of Next.js and FaunaDB, you can rapidly develop and deploy production-ready applications. 💪
 
-First, run the development server:
+## Features 🎯
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+- Server-side rendering with Next.js for optimal performance and SEO. 🌐
+- Integration with Apollo GraphQL Client for efficient data fetching and caching. 🚀
+- FaunaDB, a flexible and serverless distributed document-relational database, powers the backend. 🗃️
+- Powerful GraphQL API provided by FaunaDB for seamless data access and manipulation. 🔍
+- Custom Fauna GraphQL resolvers (UDFs) to handle complex business logic. 💡
+- Authentication with Auth0 for secure user management and authentication. 🔒
+- Stripe payment integration for handling transactions. 💳
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Getting Started 🚀
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+To get started with the project, follow the steps below:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+1. Clone the repository: `git clone https://github.com/avivdaniel/next-tw-store.git` 📥
+2. Install dependencies: `npm install` ⚙️
+3. Configure environment variables:
+   - Create a `.env` file in the project root directory.
+   - Add the necessary environment variables, such as `FAUNA_SECRET_KEY`, `AUTH0_DOMAIN`, and `AUTH0_CLIENT_ID`. Refer to the `.env.example` file for the required variables.
+4. Start the development server: `npm run dev` 🏗️
+5. Open your browser and access the application at `http://localhost:3000` 🌐
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Project Structure 📂
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+The project structure is designed to provide a clear separation of concerns and maintainability. Here's an overview of the main directories and files:
 
-## Learn More
+- `pages/`: Contains the Next.js pages that define the application routes.
+- `components/`: Contains reusable React components used across the application.
+- `graphql/`: Includes GraphQL queries, mutations, and schemas used by the Apollo Client.
+- `pages/api/`: Contains the serverless API routes used for backend functionality.
+- `services/`: Includes utility functions and services used throughout the application.
+- `styles/`: Contains global styles and styling utilities.
 
-To learn more about Next.js, take a look at the following resources:
+## Prerequisites ⚙️
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+To run the project locally, you need to have the following prerequisites installed:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Node.js (v14 or above) 🟩
+- npm (v7 or above) 📦
+- FaunaDB account and API key 🗄️
+- Auth0 account with configured domain and client ID 🔑
+- Stripe account for payment integration 💳
 
-## Deploy on Vercel
+## Contributing 🤝
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Contributions to the project are welcome! If you find any issues or have ideas for improvements, feel free to open an issue or submit a pull request.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Please make sure to follow the project's code of conduct and adhere to best practices when contributing.
+
+## License 📝
+
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT
