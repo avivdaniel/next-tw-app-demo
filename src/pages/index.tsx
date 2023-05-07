@@ -1,6 +1,6 @@
 import {useQuery} from "@apollo/client";
 import ProductList from "@/components/ProductList";
-import {GET_PRODUCTS, GetProductsData} from "@/queries/getProducts";
+import {GET_PRODUCTS, GetProductsData} from "@/graphql/getProducts";
 import Loader from "@/components/Loader";
 import NoProductsMessage from "@/components/NoProductsMessage";
 import ErrorIndicator from "@/components/ErrorIndicator";

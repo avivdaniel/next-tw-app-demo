@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {useMutation} from "@apollo/client";
-import {CREATE_SHOP, CreateShopData} from "@/queries/createShop";
+import {CREATE_SHOP, CreateShopData} from "@/graphql/createShop";
 import {useUser} from "@auth0/nextjs-auth0/client";
 import Loader from "@/components/Loader";
 import ErrorIndicator from "@/components/ErrorIndicator";
