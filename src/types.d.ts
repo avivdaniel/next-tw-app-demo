@@ -14,4 +14,5 @@ export interface Shop {
     products: Product[],
     ownerID: string,
     coverImg: string
+    _id: string
 }

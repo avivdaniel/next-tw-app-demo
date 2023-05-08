@@ -1,7 +1,8 @@
-import {Product, Shop} from "@/types";
+import {Shop} from "@/types";
 import React from "react";
+import Link from "next/link";
 
-const ShopItem = ({name, coverImg}: Shop) => {
+const ShopItem = ({name, coverImg, _id}: Shop) => {
     return (
         <div className="group relative">
             <div
@@ -15,8 +16,10 @@ const ShopItem = ({name, coverImg}: Shop) => {
                 <div>
                     <div className="text-sm">
                             <span className="absolute inset-x-0 top-0 p-2 flex w-full justify-around">
-                                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Add Product</button>
-                                <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full">Delete Shop</button>
+                                <Link href={`shops/${_id}/products`}
+                                      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Add Product</Link>
+                                <button
+                                    className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full">Delete Shop</button>
                             </span>
                     </div>
                     <p className="mt-1 text-md text-gray-500">{name}</p>
