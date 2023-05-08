@@ -1,7 +1,7 @@
 import {Product, Shop} from "@/types";
 import React from "react";
 
-const ShopItem = ({name, description, coverImg}: Shop) => {
+const ShopItem = ({name, coverImg}: Shop) => {
     return (
         <div className="group relative">
             <div
@@ -13,12 +13,13 @@ const ShopItem = ({name, description, coverImg}: Shop) => {
             </div>
             <div className="mt-4 flex justify-between">
                 <div>
-                    <h3 className="text-lg font-bold text-white">
-                            <span aria-hidden="true" className="absolute inset-0 left-2">
-                                {name}
+                    <div className="text-sm">
+                            <span className="absolute inset-x-0 top-0 p-2 flex w-full justify-around">
+                                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Add Product</button>
+                                <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full">Delete Shop</button>
                             </span>
-                    </h3>
-                    <p className="mt-1 text-sm text-gray-500">{description}</p>
+                    </div>
+                    <p className="mt-1 text-md text-gray-500">{name}</p>
                 </div>
             </div>
         </div>

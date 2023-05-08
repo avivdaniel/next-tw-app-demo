@@ -19,7 +19,7 @@ const TitleStyles = 'text-xl font-bold mb-4';
 
 const ManageShops = ({accessToken}: ManageShopsProps) => {
     const {user} = useUser();
-    const {data, loading, error} = useQuery<GetShopsByOwnerQueryResponse>(GET_SHOPS_BY_OWNER, {
+    const {data, loading, error, refetch} = useQuery<GetShopsByOwnerQueryResponse>(GET_SHOPS_BY_OWNER, {
         variables: {ownerID: user?.sub}
     });
 
@@ -32,7 +32,7 @@ const ManageShops = ({accessToken}: ManageShopsProps) => {
         <div className="w-full grid grid-cols-1 lg:grid-cols-2">
             <div className={ContainerStyles}>
                 <h3 className={TitleStyles}>Create a new shop</h3>
-                <NewShopForm accessToken={accessToken}/>
+                <NewShopForm accessToken={accessToken} onSubmit={refetch}/>
             </div>
             <div className={ContainerStyles}>
                 <h3 className={TitleStyles}>Your current shops</h3>

@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
-import {useMutation} from "@apollo/client";
+import {ApolloQueryResult, useMutation} from "@apollo/client";
 import {CREATE_SHOP, CreateShopData} from "@/graphql/createShop";
 import {useUser} from "@auth0/nextjs-auth0/client";
 import Loader from "@/components/Loader";
 import ErrorIndicator from "@/components/ErrorIndicator";
 import {httpLink, setAuthToken} from "../../gqlClient";
+import {GetShopsByOwnerQueryResponse} from "@/graphql/getShopsByOwner";
 
 const btnStyle = `my-1 rounded-md bg-indigo-100 px-4 py-2 text-indigo-700 hover:bg-indigo-200 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2`;
 const labelStyle = `block text-sm font-medium text-gray-700`;
@@ -12,9 +13,10 @@ const inputStyle = `shadow-sm border-gray-200 focus:ring-indigo-500 focus:border
 
 interface NewShopFormProps {
     accessToken: string
+    onSubmit: () => Promise<ApolloQueryResult<GetShopsByOwnerQueryResponse>>
 }
 
-const NewShopForm = ({accessToken}: NewShopFormProps) => {
+const NewShopForm = ({accessToken, onSubmit}: NewShopFormProps) => {
     const {user} = useUser()
     const [createNewShop, {loading, error, client}] = useMutation<CreateShopData>(CREATE_SHOP)
 
@@ -39,7 +41,10 @@ const NewShopForm = ({accessToken}: NewShopFormProps) => {
         createNewShop({
             variables: {...formData, ownerID: user?.sub}
         })
-            .then(() => alert(`Shop created`))
+            .then(() => {
+                alert(`Shop created`);
+                onSubmit()
+            })
             .catch((err) => console.error(err))
     };
 
