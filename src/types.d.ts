@@ -7,3 +7,11 @@ export interface Product {
     _id: string
     imageUrl?:string
 }
+
+export interface Shop {
+    name: string
+    description: string
+    products: Product[],
+    ownerID: string,
+    coverImg: string
+}

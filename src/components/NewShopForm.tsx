@@ -47,7 +47,7 @@ const NewShopForm = ({accessToken}: NewShopFormProps) => {
     if (error) return <ErrorIndicator/>
 
     return (
-        <form onSubmit={handleSubmit} className="bg-white w-full max-w-2xl h-full p-4">
+        <form onSubmit={handleSubmit} className="bg-white w-full p-4 rounded shadow-sm">
             <label className={labelStyle}>Shop Name</label>
             <div className="mt-1 mb-3">
                 <input
